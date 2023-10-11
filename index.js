@@ -1,0 +1,36 @@
+const express = require("express")
+const cors = require("cors")
+const bodyParser = require("body-parser")
+const https = require("https");
+const fs = require("fs")
+const path = require("path");
+
+const userRouter = require("./route.js")
+require("./Config/Hederadb.js")
+
+const app = express();
+app.use(cors());
+
+const options = {
+  key: fs.readFileSync('selfsigned.key', 'utf8'),
+  cert: fs.readFileSync('selfsigned.crt', 'utf8')
+}
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use("/users", userRouter);
+app.use("/", (req, res) => {
+  console.log("WWWWW");
+});
+
+// var httpsServer = https.createServer(options, app);
+// httpsServer.listen(8000);
+
+app
+  .listen(8000, () => {
+    console.log("Server Started at port:8000");
+  })
+  .on("error", (err) => {
+    console.log("Server failed to start:8000", err);
+  });
