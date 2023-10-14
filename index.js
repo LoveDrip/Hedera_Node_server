@@ -28,13 +28,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/users", userRouter);
 
-// var httpsServer = https.createServer(options, app);
-// httpsServer.listen(8000);
+var httpsServer = https.createServer(options, app);
+httpsServer.listen(8000);
 
-app
-  .listen(8000, () => {
-    console.log("Server Started at port:8000");
-  })
-  .on("error", (err) => {
-    console.log("Server failed to start:8000", err);
-  });
+// app
+//   .listen(8000, () => {
+//     console.log("Server Started at port:8000");
+//   })
+//   .on("error", (err) => {
+//     console.log("Server failed to start:8000", err);
+//   });
