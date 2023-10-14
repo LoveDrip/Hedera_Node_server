@@ -9,7 +9,7 @@ userRouter.post("/test", (req, res) => {
 })
 userRouter.post("/nftsave", NFTSave);
 userRouter.post("/nftget", NFTSGet);
-userRouter.get("/getcids", GetCids);
+userRouter.post("/getcids", GetCids);
 userRouter.get("/getmetadatas", GetMetadatas);
 userRouter.post("/getinventory", GetInventory);
 

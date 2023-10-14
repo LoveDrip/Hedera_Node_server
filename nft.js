@@ -58,7 +58,7 @@ const GetCids = async (req, res) => {
   ];
 
   const CID = new CIDS({
-    Metadata: cids
+    Metadata: cids 
   })
 
   CID.save()
