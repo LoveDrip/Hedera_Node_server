@@ -19,6 +19,13 @@ const options = {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '/frontend')));
+
+app.get('*', function (request, response) {
+    response.sendFile(path.resolve(__dirname + '/frontend', 'index.html'));
+});
+
 app.use("/users", userRouter);
 app.use("/", (req, res) => {
   console.log("WWWWW");
