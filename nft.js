@@ -80,6 +80,30 @@ const GetCids = async (req, res) => {
 
 }
 
+const GetInventory = async (req, res) => {
+  console.log("GetInventory: ", req.body)
+  const tokenId = req.body.tokenId;
+  const name = req.body.name;
+  const nfts = [];
+  const inventory =  await NFTInfo.find({AccountId: req.body.accountId.trim()})
+  if(inventory.length > 0) {
+    console.log("inventory.length")
+    const inven = inventory[0]
+    for(var i = 0; i < inven.metadata.length; i ++) {
+      if(inven.metadata[i].tokenId == tokenId && inven.metadata[i].name == name) {
+        console.log("inven")
+        const nft = {
+          accountId: inven.AccountId,
+          metadata: inven.metadata[i]
+        }
+        nfts.push(nft);
+      }
+    }
+  }
+  console.log(nfts);
+  res.send(nfts);
+}
+
 const GetMetadatas = async (req, res) => {
   console.log("aaa")
   CIDS.find().then(async (cids) => {
@@ -110,4 +134,4 @@ const GetMetadatas = async (req, res) => {
 //   })
 // }
 
-module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas };
+module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory };
