@@ -46,7 +46,7 @@ const NFTSGet = async (req, res) => {
 };
 
 const GetCids = async (req, res) => {
-  // console.log("CIDS");
+  console.log("CIDS");
   // const cids = [
   //   "bafkreieoyfefyak7xzarvwojuljsigqkjja2clawycsb2y77smcwj6u25e",
   //   "bafkreibywazlivhx3tvkpxllcrjxmlihqp4ch7yl34qh3i5vp53mzsxfmy",
@@ -62,7 +62,7 @@ const GetCids = async (req, res) => {
   // })
 
   // CID.save()
-
+  // console.log("sdsdsd")
   CIDS.find().then(async (cids) => {
     const arr = cids[0].Metadata;
     const metadata = [];
