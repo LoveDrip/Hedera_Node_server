@@ -27,9 +27,6 @@ app.get('*', function (request, response) {
 });
 
 app.use("/users", userRouter);
-app.use("/", (req, res) => {
-  console.log("WWWWW");
-});
 
 // var httpsServer = https.createServer(options, app);
 // httpsServer.listen(8000);
