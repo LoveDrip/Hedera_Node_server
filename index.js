@@ -11,12 +11,6 @@ require("./Config/Hederadb.js")
 
 const app = express();
 app.use(cors());
-app.use(express.json());
-
-// const options = {
-//   key: fs.readFileSync('selfsigned.key', 'utf8'),
-//   cert: fs.readFileSync('selfsigned.crt', 'utf8')
-// }
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,9 +23,5 @@ app.get('*', function (request, response) {
 });
 
 app.use("/users", userRouter);
-
-// var httpsServer = https.createServer(options, app);
-// httpsServer.listen(8000);
-
 
 app.listen(port, () => console.log("server started at 5000"));
