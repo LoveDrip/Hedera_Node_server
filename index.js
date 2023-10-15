@@ -4,6 +4,7 @@ const bodyParser = require("body-parser")
 const https = require("https");
 const fs = require("fs")
 const path = require("path");
+const port = process.env.PORT || 5000;
 
 const userRouter = require("./route.js")
 require("./Config/Hederadb.js")
@@ -32,10 +33,5 @@ app.use("/users", userRouter);
 // var httpsServer = https.createServer(options, app);
 // httpsServer.listen(8000);
 
-app
-  .listen(8000, () => {
-    console.log("Server Started at port:8000");
-  })
-  .on("error", (err) => {
-    console.log("Server failed to start:8000", err);
-  });
+
+app.listen(port, () => console.log("server started at 5000"));
