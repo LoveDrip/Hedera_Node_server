@@ -1,8 +1,8 @@
 const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
-const https = require("https");
-const fs = require("fs")
+// const https = require("https");
+// const fs = require("fs")
 const path = require("path");
 const port = process.env.PORT || 5000;
 
@@ -13,10 +13,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const options = {
-  key: fs.readFileSync('selfsigned.key', 'utf8'),
-  cert: fs.readFileSync('selfsigned.crt', 'utf8')
-}
+// const options = {
+//   key: fs.readFileSync('selfsigned.key', 'utf8'),
+//   cert: fs.readFileSync('selfsigned.crt', 'utf8')
+// }
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
