@@ -21,21 +21,21 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, '/frontend')));
+app.use(express.static(path.join(__dirname, '/build')));
 
-// app.get('*', function (request, response) {
-//     response.sendFile(path.resolve(__dirname + '/frontend', 'index.html'));
-// });
+app.get('*', function (request, response) {
+  response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
+});
 
 app.use("/users", userRouter);
 
-var httpsServer = https.createServer(options, app);
-httpsServer.listen(8000);
+// var httpsServer = https.createServer(options, app);
+// httpsServer.listen(8000);
 
-// app
-//   .listen(8000, () => {
-//     console.log("Server Started at port:8000");
-//   })
-//   .on("error", (err) => {
-//     console.log("Server failed to start:8000", err);
-//   });
+app
+  .listen(8000, () => {
+    console.log("Server Started at port:8000");
+  })
+  .on("error", (err) => {
+    console.log("Server failed to start:8000", err);
+  });
