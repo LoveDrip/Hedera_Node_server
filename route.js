@@ -3,7 +3,7 @@ const express = require("express")
 const { NFTSGet, NFTSave, GetCids, GetMetadatas, GetInventory } = require("./nft")
 
 const userRouter = express.Router();
-console.log("NFTSAVE")
+console.log("NFTSAVe")
 userRouter.get("/test", (req, res) => {
     console.log("test>>>>");
 })
