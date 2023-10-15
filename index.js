@@ -10,6 +10,7 @@ require("./Config/Hederadb.js")
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const options = {
   key: fs.readFileSync('selfsigned.key', 'utf8'),
