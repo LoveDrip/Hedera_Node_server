@@ -6,6 +6,7 @@ const userRouter = express.Router();
 console.log("NFTSAVe")
 userRouter.get("/test", (req, res) => {
     console.log("test>>>>");
+    res.send("test");
 })
 userRouter.post("/nftsave", NFTSave);
 userRouter.post("/nftget", NFTSGet);

@@ -1,0 +1,23 @@
+{
+    "channel": {
+        "id": 1753049,
+        "name": "Temperatura ed Umidità",
+        "description": "Monitoraggio temperatura ed umidità ufficio Digital Twin",
+        "latitude": "0.0",
+        "longitude": "0.0",
+        "field1": "Temperature",
+        "field2": "Humidity",
+        "field3": "Allarme Temp",
+        "field4": "Allarme Umid",
+        "created_at": "2022-05-30T13:00:22Z",
+        "updated_at": "2022-06-07T10:57:51Z",
+        "last_entry_id": 22752
+    },
+    "feeds": [
+        {
+            "created_at": "2022-07-15T07:43:26Z",
+            "entry_id": 22752,
+            "field2": "42.00"
+        }
+    ]
+}
