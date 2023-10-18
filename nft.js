@@ -185,15 +185,12 @@ const GetCids = async (req, res) => {
 }
 
 const GetCid = async (req, res) => {
-  console.log("req.body: ", req.body)
   const name = req.body.name
   const tokenId = req.body.tokenId;
   NFTs.find().then((nfts) => {
     const nft = nfts[0].Metadata;
     for(var i = 0; i < nft.length; i++ ) {
-      console.log("nft:   : ",nft[i].name, name, nft[i].tokenId, tokenId)
       if(nft[i].name == name && nft[i].tokenId == tokenId ) {
-        console.log(nft[i].cid)
         res.send(nft[i])
       }
     }
