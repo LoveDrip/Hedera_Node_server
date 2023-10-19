@@ -22,17 +22,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, '/build')));
+app.use(express.static(path.join(__dirname, '/build')));
 
-// app.get('*', function (request, response) {
-//   response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
-// });
+app.get('*', function (request, response) {
+  response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
+});
 
 
 
 app.use("/users", userRouter);
 
-var httpsServer = https.createServer(options, app);
-httpsServer.listen(port); 
+// var httpsServer = https.createServer(options, app);
+// httpsServer.listen(port); 
 
-// app.listen(port, () => console.log("server started at 5000"));
+app.listen(port, () => console.log("server started at 5000"));
