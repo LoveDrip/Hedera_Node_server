@@ -175,8 +175,9 @@ const GetCids = async (req, res) => {
   // const nft = new NFTs({
   //   Metadata: metadatas
   // })
-
   // nft.save()
+
+
   console.log("sdsdsd")
   NFTs.find().then((nfts) => {
     res.send(nfts[0])
@@ -243,7 +244,6 @@ const GetMetadatas = async (req, res) => {
       let cid = arr[i]
       const res = await fetch(`https://ipfs.io/ipfs/${newValue}`);
       const meta = await res.json();
-      // console.log(meta)
       meta.imagecid = meta.image.slice(7);
       meta.cid = cid
       metadata[i] = meta;
@@ -251,16 +251,8 @@ const GetMetadatas = async (req, res) => {
     const alldata = {
       Alldata: metadata
     }
-    // console.log(alldata)
     res.send(alldata)
-    // res.send(metadata)
   })
 }
-// const GetCids = async (req, res) => {
-//   console.log("CIDS")
-//   CIDS.find().then(cids => {
-//     res.send(cids[0].CIDS);
-//   })
-// }
 
 module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid };
