@@ -1,3 +1,5 @@
+
+
 const express = require("express")
 const cors = require("cors")
 const bodyParser = require("body-parser")
@@ -22,6 +24,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Serve static files from the React app
+// app.use(express.static(path.join(__dirname, '/build')))
+
+//app.get('*', function (request, response) {
+//  response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
+//});
+
+app.use("/users", userRouter);
+
 app.use(express.static(path.join(__dirname, '/build')));
 
 app.get('*', function (request, response) {
