@@ -204,17 +204,6 @@ const GetCid = async (req, res) => {
       }
     }
   })
-
-  // const nfts = await NFTs.find()
-  // console.log(nfts)
-  // const nft = nfts[0];
-  //   for(var i = 0; i < nft.length; i++) {
-  //     // console.log(nft[i])
-  //     if(nft[i].name == req.body.name && nft[i].tokenId == req.body.tokenId) {
-  //       console.log(nft[i])
-  //       res.send(nft[i].cid);
-  //     }
-  //   }
 }
 
 
