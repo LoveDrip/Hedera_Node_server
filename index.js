@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/v3market.net/privkey.pem', 'utf8'),
+  key: fs.readFileSync('/etc/letsencrypt/live/v3market.net/fullchain.pem', 'utf8'),
   cert: fs.readFileSync('/etc/letsencrypt/live/v3market.net/fullchain.pem', 'utf8')
 }
 
