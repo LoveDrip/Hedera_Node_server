@@ -37,11 +37,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/users", userRouter);
 
-app.use(express.static(path.join(__dirname, '/build')));
+// app.use(express.static(path.join(__dirname, '/build')));
 
-app.get('*', function (request, response) {
-  response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
-});
+// app.get('*', function (request, response) {
+//   response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
+// });
 
 var httpsServer = https.createServer(app);
 httpsServer.listen(8000);
