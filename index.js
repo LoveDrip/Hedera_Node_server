@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 const options = {
-  key: fs.readFileSync('', 'utf8'),
-  cert: fs.readFileSync('', 'utf8')
+  key: fs.readFileSync('privKey.pem', 'utf8'),
+  cert: fs.readFileSync('fullchain.pem', 'utf8')
 }
 
 app.use("/users", userRouter);
