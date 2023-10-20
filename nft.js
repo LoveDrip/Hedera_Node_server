@@ -198,7 +198,7 @@ const GetCid = async (req, res) => {
   NFTs.find().then((nfts) => {
     const nft = nfts[0].Metadata;
     for(var i = 0; i < nft.length; i++ ) {
-      if(nft[i].name == name ) {
+      if(nft[i].name == name) {
         res.send(nft[i])
       }
     }

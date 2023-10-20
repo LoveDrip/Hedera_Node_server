@@ -13,7 +13,16 @@ const userRouter = require("./route.js")
 require("./Config/Hederadb.js")
 
 const app = express();
-app.use(cors());  
+
+const corsOpts = {
+  origin: "*",
+  credentials: true,
+  methods: ["GET", "POST", "HEAD", "PUT", "PATCH", "DELETE"],
+  aloowedHeaders: ["Content-Type"],
+  exposedHeaders: ["Content-Type"]
+}
+
+app.use(cors(corsOpts));
 
 
 app.use(bodyParser.json());
