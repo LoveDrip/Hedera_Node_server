@@ -34,7 +34,4 @@ app.get('*', function (request, response) {
   response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
 });
 
-// var httpsServer = https.createServer(options, app);
-// httpsServer.listen(port); 
-
 app.listen(port, () => console.log("server started at 5000"));
