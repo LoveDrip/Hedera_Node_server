@@ -7,7 +7,7 @@ const https = require("https");
 const fs = require("fs")
 const path = require("path");
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 const userRouter = require("./route.js")
 require("./Config/Hederadb.js")
@@ -42,7 +42,7 @@ app.get('*', function (request, response) {
 
 app.use("/users", userRouter);
 
-// var httpsServer = https.createServer(options, app);
-// httpsServer.listen(port); 
+var httpsServer = https.createServer(options, app);
+httpsServer.listen(port); 
 
 app.listen(port, () => console.log("server started at 5000"));
