@@ -5,9 +5,9 @@ const fetch = require("node-fetch")
 
 
 const NFTSave = async (req, res) => {
-  console.log(req.body)
-  console.log("Get NFT infos from ", req.body.accountId)
-  console.log("------------------------------NFT Infos------------------------------", req.body.metadata)
+  // console.log(req.body)
+  // console.log("Get NFT infos from ", req.body.accountId)
+  // console.log("------------------------------NFT Infos------------------------------", req.body.metadata)
   try {
 
     const existNFT = await NFTInfo.find({ AccountId: req.body.accountId });
@@ -232,7 +232,6 @@ const GetInventory = async (req, res) => {
 }
 
 const GetMetadatas = async (req, res) => {
-  console.log("aaa")
   CIDS.find().then(async (cids) => {
     const arr = cids[0].Metadata;
     const metadata = [];
