@@ -46,4 +46,8 @@ app.get('*', function (request, response) {
 var httpsServer = https.createServer(options, app);
 httpsServer.listen(8000);
 
-app.listen(port, () => console.log("server started at 5000"));
+//app.listen(port, () => console.log("server started at 5000"));
+
+
+// app.listen(port, () => console.log("server started at 5000"));
+>>>>>>> 55a0b73947f29ad00eb05b5035fbf8217bb1d2e5
