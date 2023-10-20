@@ -19,12 +19,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// // Serve static files from the React app
-// app.use(express.static(path.join(__dirname, '/build')))
 
-//app.get('*', function (request, response) {
-//  response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
-//});
+
+const options = {
+  key: fs.readFileSync('selfsigned.key', 'utf8'),
+  cert: fs.readFileSync('selfsigned.crt', 'utf8')
+}
 
 app.use("/users", userRouter);
 
@@ -33,5 +33,8 @@ app.use(express.static(path.join(__dirname, '/build')));
 app.get('*', function (request, response) {
   response.sendFile(path.resolve(__dirname + '/build', 'index.html'));
 });
+
+var httpsServer = https.createServer(options, app);
+httpsServer.listen(8000);
 
 app.listen(port, () => console.log("server started at 5000"));
