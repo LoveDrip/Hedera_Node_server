@@ -11,7 +11,7 @@ userRouter.get("/test", (req, res) => {
 userRouter.post("/nftsave", NFTSave);
 userRouter.post("/nftget", NFTSGet);
 userRouter.post("/getcids", GetCids);
-userRouter.get("/getmetadatas", GetMetadatas);
+userRouter.post("/getmetadatas", GetMetadatas);
 userRouter.post("/getinventory", GetInventory);
 userRouter.post("/getcid", GetCid)
 
