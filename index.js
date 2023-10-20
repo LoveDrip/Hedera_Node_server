@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 const options = {
-  key: fs.readFileSync('selfsigned.key', 'utf8'),
-  cert: fs.readFileSync('selfsigned.crt', 'utf8')
+  key: fs.readFileSync('privatekey.key', 'utf8'),
+  cert: fs.readFileSync('certificate.crt', 'utf8')
 }
 
 app.use("/users", userRouter);
