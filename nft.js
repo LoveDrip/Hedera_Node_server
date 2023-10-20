@@ -238,7 +238,7 @@ const GetMetadatas = async (req, res) => {
     const metadata = [];
     for (var i = 0; i < arr.length; i++) {
       const newValue = Buffer.from(arr[i]);
-      let cid = arr[i]
+      let cid = arr[i]d
       const res = await fetch(`https://ipfs.io/ipfs/${newValue}`);
       const meta = await res.json();
       meta.imagecid = meta.image.slice(7);
