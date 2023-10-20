@@ -232,6 +232,7 @@ const GetInventory = async (req, res) => {
 }
 
 const GetMetadatas = async (req, res) => {
+  console.log("aaa")
   CIDS.find().then(async (cids) => {
     const arr = cids[0].Metadata;
     const metadata = [];
