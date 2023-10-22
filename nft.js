@@ -49,21 +49,21 @@ const NFTSGet = async (req, res) => {
 
 const GetCids = async (req, res) => {
   console.log("CIDS");
-  //   const cids = [
-  //     "bafkreib5nezjz65tzgmozo64fl2vnnexsq4n7viwizzwnmu62t4qtr2qxy",
-  // "bafkreic6wtr7vgs6774ghrc6jbjcj4vmkkftcsmrunt4k45ahmz5da52la",
-  // "bafkreigdsl5bht4r5aswvb43xnrdgca7qbiiptyoxfp2m4f5oudbe5k7sy",
-  // "bafkreidsbjpzp5h6kzxulugtsqfh6j62wulcxuezx3fdbf276mckfb6i64",
-  // "bafkreibjk4myovftuv63ialonkeqjtdloouyzot2ewxyp4s45paqj7qmbu",
-  // "bafkreidsnvp6rzdgrleze7if7dfrewumvjfc2vqqr57dvd7dibv3oqwdem",
-  // "bafkreic6oaowvec3sfn23pai2dh777cufktvwbyhgeoglc2tpcva7sbbfe"
-  //   ];
+    const cids = [
+      "bafkreib5nezjz65tzgmozo64fl2vnnexsq4n7viwizzwnmu62t4qtr2qxy",
+  "bafkreic6wtr7vgs6774ghrc6jbjcj4vmkkftcsmrunt4k45ahmz5da52la",
+  "bafybeibchealxhfebtun7oc6lqq3kyt5bcpuvstsitu2pyqevtsl2usaly",
+  "bafybeibqn4fnfbbr622ltqjgsucr3pd35ftcvnpd6pmdjdbjwwil4hp3cy",
+  "bafybeiba4lfjkzqkkmy7ri52qcd3jpuwe75vcyn6qo5knewh72po7qcndq",
+  "bafybeiceexupu72a77gyoeyzvbaxhwenyfctnrsrme3gq4rzdksqv7qbva",
+  "bafkreic6oaowvec3sfn23pai2dh777cufktvwbyhgeoglc2tpcva7sbbfe"
+    ];
 
-  //   const cid = new CIDS({
-  //     Metadata: cids
-  //   })
+    const cid = new CIDS({
+      Metadata: cids
+    })
 
-  //   cid.save();
+    cid.save();
 
   // const metadatas = [
   //   {
@@ -171,11 +171,6 @@ const GetCids = async (req, res) => {
   //     "RPM": "100",
   //     "serial_number": "7"
   //   }
-
-
-
-
-
   // ]
 
   // const nft = new NFTs({
@@ -184,10 +179,10 @@ const GetCids = async (req, res) => {
   // nft.save()
 
 
-  console.log("sdsdsd")
-  NFTs.find().then((nfts) => {
-    res.send(nfts[0])
-  })
+  // console.log("sdsdsd")
+  // NFTs.find().then((nfts) => {
+  //   res.send(nfts[0])
+  // })
 
 }
 
