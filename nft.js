@@ -64,7 +64,6 @@ const GetCids = async (req, res) => {
   //   })
 
   //   cid.save();
-
   // const metadatas = [
   //   {
   //     "image": "bafybeic4sogfb52n3j743iciq7vxx5b5f6kyhzsdlzlawlvtq7hqolhbn4",
@@ -183,6 +182,11 @@ const GetCids = async (req, res) => {
   // NFTs.find().then((nfts) => {
   //   res.send(nfts[0])
   // })
+
+  console.log("getcids");
+  CIDS.find().then((cids) => {
+    res.send(cids[0].Metadata)
+  })
 
 }
 
