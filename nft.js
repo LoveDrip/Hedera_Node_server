@@ -212,16 +212,16 @@ const UpdateMetadata = async (req, res) => {
 
   console.log(drop)
 
-  // if(drop) {
-  //   console.log()
-  //   const nfts = new NFTs ({
-  //     Metadata: metas
-  //   })
+  if(drop.acknowledged) {
+    console.log()
+    const nfts = new NFTs ({
+      Metadata: metas
+    })
 
-  //   nfts.save();
+    nfts.save();
 
 
-  // }
+  }
   
 
 }
