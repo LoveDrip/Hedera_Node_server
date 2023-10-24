@@ -205,6 +205,26 @@ const GetCid = async (req, res) => {
   })
 }
 
+const UpdateMetadata = async (req, res) => {
+  console.log(req.body)
+  const metas = req.body.metadata
+  const drop = NFTs.drop();
+
+  console.log(drop)
+
+  // if(drop) {
+  //   console.log()
+  //   const nfts = new NFTs ({
+  //     Metadata: metas
+  //   })
+
+  //   nfts.save();
+
+
+  // }
+  
+
+}
 
 const GetInventory = async (req, res) => {
   console.log("GetInventory: ", req.body)
@@ -258,4 +278,4 @@ const GetMetadatas = async (req, res) => {
   } )
 }
 
-module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid };
+module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid, UpdateMetadata };
