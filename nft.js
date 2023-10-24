@@ -271,6 +271,7 @@ const GetMetadatas = async (req, res) => {
     const alldata = {
       Alldata: metadata
     }
+    console.log(alldata)
     res.send(alldata)
   } )
 }
