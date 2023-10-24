@@ -232,23 +232,30 @@ const GetInventory = async (req, res) => {
 
 const GetMetadatas = async (req, res) => {
   console.log("aaa")
-  CIDS.find().then(async (cids) => {
-    const arr = cids[0].Metadata;
-    const metadata = [];
-    for (var i = 0; i < arr.length; i++) {
-      const newValue = Buffer.from(arr[i]);
-      let cid = arr[i];
-      const res = await fetch(`https://ipfs.io/ipfs/${newValue}`);
-      const meta = await res.json();
-      meta.imagecid = meta.image.slice(7);
-      meta.cid = cid
-      metadata[i] = meta;
-    }
+  // CIDS.find().then(async (cids) => {
+  //   const arr = cids[0].Metadata;
+  //   const metadata = [];
+  //   for (var i = 0; i < arr.length; i++) {
+  //     const newValue = Buffer.from(arr[i]);
+  //     let cid = arr[i];
+  //     const res = await fetch(`https://ipfs.io/ipfs/${newValue}`);
+  //     const meta = await res.json();
+  //     meta.imagecid = meta.image.slice(7);
+  //     meta.cid = cid
+  //     metadata[i] = meta;
+  //   }
+  //   const alldata = {
+  //     Alldata: metadata
+  //   }
+  //   res.send(alldata)
+  // })
+  NFTs.find().then((metadatas) => {
+    const metadata = metadatas[0].Metadata;
     const alldata = {
       Alldata: metadata
     }
     res.send(alldata)
-  })
+  } )
 }
 
 module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid };
