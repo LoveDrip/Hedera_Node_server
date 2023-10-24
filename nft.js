@@ -208,7 +208,7 @@ const GetCid = async (req, res) => {
 const UpdateMetadata = async (req, res) => {
   console.log(req.body)
   const metas = req.body.metadata
-  const drop = NFTs.deleteMany();
+  const drop = await NFTs.deleteMany();
 
   console.log(drop)
 
