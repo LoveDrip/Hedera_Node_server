@@ -5,9 +5,9 @@ const fetch = require("node-fetch")
 
 
 const NFTSave = async (req, res) => {
-  console.log(req.body)
-  console.log("Get NFT infos from ", req.body.accountId)
-  console.log("------------------------------NFT Infos------------------------------", req.body.metadata)
+  // console.log(req.body)
+  // console.log("Get NFT infos from ", req.body.accountId)
+  // console.log("------------------------------NFT Infos------------------------------", req.body.metadata)
   try {
 
     const existNFT = await NFTInfo.find({ AccountId: req.body.accountId });
@@ -52,10 +52,10 @@ const GetCids = async (req, res) => {
   //   const cids = [
   //     "bafkreib5nezjz65tzgmozo64fl2vnnexsq4n7viwizzwnmu62t4qtr2qxy",
   // "bafkreic6wtr7vgs6774ghrc6jbjcj4vmkkftcsmrunt4k45ahmz5da52la",
-  // "bafkreigdsl5bht4r5aswvb43xnrdgca7qbiiptyoxfp2m4f5oudbe5k7sy",
-  // "bafkreidsbjpzp5h6kzxulugtsqfh6j62wulcxuezx3fdbf276mckfb6i64",
-  // "bafkreibjk4myovftuv63ialonkeqjtdloouyzot2ewxyp4s45paqj7qmbu",
-  // "bafkreidsnvp6rzdgrleze7if7dfrewumvjfc2vqqr57dvd7dibv3oqwdem",
+  // "bafybeibchealxhfebtun7oc6lqq3kyt5bcpuvstsitu2pyqevtsl2usaly",
+  // "bafybeibqn4fnfbbr622ltqjgsucr3pd35ftcvnpd6pmdjdbjwwil4hp3cy",
+  // "bafybeiba4lfjkzqkkmy7ri52qcd3jpuwe75vcyn6qo5knewh72po7qcndq",
+  // "bafybeiceexupu72a77gyoeyzvbaxhwenyfctnrsrme3gq4rzdksqv7qbva",
   // "bafkreic6oaowvec3sfn23pai2dh777cufktvwbyhgeoglc2tpcva7sbbfe"
   //   ];
 
@@ -64,7 +64,6 @@ const GetCids = async (req, res) => {
   //   })
 
   //   cid.save();
-
   // const metadatas = [
   //   {
   //     "image": "bafybeic4sogfb52n3j743iciq7vxx5b5f6kyhzsdlzlawlvtq7hqolhbn4",
@@ -171,11 +170,6 @@ const GetCids = async (req, res) => {
   //     "RPM": "100",
   //     "serial_number": "7"
   //   }
-
-
-
-
-
   // ]
 
   // const nft = new NFTs({
@@ -184,14 +178,20 @@ const GetCids = async (req, res) => {
   // nft.save()
 
 
-  console.log("sdsdsd")
-  NFTs.find().then((nfts) => {
-    res.send(nfts[0])
+  // console.log("sdsdsd")
+  // NFTs.find().then((nfts) => {
+  //   res.send(nfts[0])
+  // })
+
+  console.log("getcids");
+  CIDS.find().then((cids) => {
+    res.send(cids[0].Metadata)
   })
 
 }
 
 const GetCid = async (req, res) => {
+  console.log(req.body)
   const name = req.body.name
   const tokenId = req.body.tokenId;
   console.log(name, tokenId)
@@ -203,19 +203,25 @@ const GetCid = async (req, res) => {
       }
     }
   })
-
-  // const nfts = await NFTs.find()
-  // console.log(nfts)
-  // const nft = nfts[0];
-  //   for(var i = 0; i < nft.length; i++) {
-  //     // console.log(nft[i])
-  //     if(nft[i].name == req.body.name && nft[i].tokenId == req.body.tokenId) {
-  //       console.log(nft[i])
-  //       res.send(nft[i].cid);
-  //     }
-  //   }
 }
 
+const UpdateMetadata = async (req, res) => {
+  const metas = req.body
+  // const drop = await NFTs.deleteMany();
+
+
+  // if(drop.acknowledged) {
+  //   const nfts = new NFTs ({
+  //     Metadata: metas
+  //   })
+
+  //   nfts.save();
+
+
+  // }
+  
+
+}
 
 const GetInventory = async (req, res) => {
   console.log("GetInventory: ", req.body)
@@ -243,23 +249,31 @@ const GetInventory = async (req, res) => {
 
 const GetMetadatas = async (req, res) => {
   console.log("aaa")
-  CIDS.find().then(async (cids) => {
-    const arr = cids[0].Metadata;
-    const metadata = [];
-    for (var i = 0; i < arr.length; i++) {
-      const newValue = Buffer.from(arr[i]);
-      let cid = arr[i]
-      const res = await fetch(`https://ipfs.io/ipfs/${newValue}`);
-      const meta = await res.json();
-      meta.imagecid = meta.image.slice(7);
-      meta.cid = cid
-      metadata[i] = meta;
-    }
+  // CIDS.find().then(async (cids) => {
+  //   const arr = cids[0].Metadata;
+  //   const metadata = [];
+  //   for (var i = 0; i < arr.length; i++) {
+  //     const newValue = Buffer.from(arr[i]);
+  //     let cid = arr[i];
+  //     const res = await fetch(`https://ipfs.io/ipfs/${newValue}`);
+  //     const meta = await res.json();
+  //     meta.imagecid = meta.image.slice(7);
+  //     meta.cid = cid
+  //     metadata[i] = meta;
+  //   }
+  //   const alldata = {
+  //     Alldata: metadata
+  //   }
+  //   res.send(alldata)
+  // })
+  NFTs.find().then((metadatas) => {
+    const metadata = metadatas[0].Metadata;
     const alldata = {
       Alldata: metadata
     }
     res.send(alldata)
-  })
+  } )
 }
 
-module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid };
+module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid, UpdateMetadata };
+/*  */

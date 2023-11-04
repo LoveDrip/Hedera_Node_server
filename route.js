@@ -1,6 +1,6 @@
 const express = require("express")
 // const { Register, Login, Logout, WalletConnect, Test} = require("user.js")
-const { NFTSGet, NFTSave, GetCids, GetMetadatas, GetInventory, GetCid } = require("./nft")
+const { NFTSGet, NFTSave, GetCids, GetMetadatas, GetInventory, GetCid, UpdateMetadata } = require("./nft")
 
 const userRouter = express.Router();
 console.log("NFTSAVe")
@@ -13,6 +13,7 @@ userRouter.post("/nftget", NFTSGet);
 userRouter.post("/getcids", GetCids);
 userRouter.post("/getmetadatas", GetMetadatas);
 userRouter.post("/getinventory", GetInventory);
-userRouter.post("/getcid", GetCid)
+userRouter.post("/getcid", GetCid);
+userRouter.post("/updatemetadata", UpdateMetadata);
 
 module.exports = userRouter;
