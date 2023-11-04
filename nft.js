@@ -276,3 +276,4 @@ const GetMetadatas = async (req, res) => {
 }
 
 module.exports = { NFTSave, NFTSGet, GetCids, GetMetadatas, GetInventory, GetCid, UpdateMetadata };
+/*  */
